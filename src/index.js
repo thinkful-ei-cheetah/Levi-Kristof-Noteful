@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from "react-router-dom";
+import STORE from './dummy-store';
 import App from './App';
 import './index.css';
-import data from './dummy-store.js'
 
 ReactDOM.render(
 <BrowserRouter>
-    <App data ={data}/>
+    <App store={STORE} />
 </BrowserRouter>, 
 document.getElementById('root'));
