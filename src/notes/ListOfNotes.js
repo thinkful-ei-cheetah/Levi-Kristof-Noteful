@@ -4,13 +4,13 @@ import React from 'react';
 import Note from './Note';
 
 export default function ListOfNotes(props) {
-  console.log(props.match.params.folderId);
+
   const notes = () => {
     let filteredNotes = props.notes.filter(note =>
       {
     if (note.folderId === props.match.params.folderId) return true;
       
-  }).map(note => <Note note={note}/>)
+  }).map(note => <li key ={note.id}> <Note  note={note}/> </li>)
 
   console.log(filteredNotes)
   return (

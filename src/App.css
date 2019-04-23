@@ -4,6 +4,37 @@ header{
   border-bottom: 1px solid black;
   margin-bottom: 15px;
 }
+
+.ListOfNotes {
+margin: 0px;
+padding: 0px;
+width: 80%;
+}
+
+{
+  width: 100%;
+}
+
+.ListOfNotes > li{
+  list-style: none;
+  margin-left: 15px;
+  width: 100%;
+}
+
 main{
   display: flex;
+}
+
+.Note{
+  width: 700px;
+  border: 1px solid black;
+  padding: 15px 25px;
+  margin-bottom: 20px;
+}
+
+.del-btn{
+  background-color: transparent;
+  padding: 15px 25px;
+  border: 1px solid black;
+  margin-left: 550px;
 }

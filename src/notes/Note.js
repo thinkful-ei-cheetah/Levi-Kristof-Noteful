@@ -3,10 +3,10 @@ import React from 'react';
 
 export default function Note(props) {
   return (
-    <div className={props.note.id}>
+    <div className="Note">
         <h3>{props.note.name}</h3>
         <p>{props.note.modified}</p>
-        <button>Delete Note</button>
+        <button className="del-btn">Delete Note</button>
     </div>
   );
 }

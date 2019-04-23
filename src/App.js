@@ -47,10 +47,10 @@ class App extends Component {
               path='/:folderId'
               render={({match})=>{console.log(match)
                 return (
-                  <div>
+                  <React.Fragment>
                     <Sidebar folders={this.state.folders}/>
                     <ListOfNotes match ={match} notes={this.state.notes}/>
-                  </div>
+                  </React.Fragment>
 
                 )
               }}/>
