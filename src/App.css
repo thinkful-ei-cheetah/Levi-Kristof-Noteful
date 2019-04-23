@@ -11,10 +11,6 @@ padding: 0px;
 width: 80%;
 }
 
-{
-  width: 100%;
-}
-
 .ListOfNotes > li{
   list-style: none;
   margin-left: 15px;

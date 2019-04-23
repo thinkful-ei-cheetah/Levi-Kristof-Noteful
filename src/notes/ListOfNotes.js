@@ -4,21 +4,31 @@ import React from 'react';
 import Note from './Note';
 
 export default function ListOfNotes(props) {
-
-  const notes = () => {
-    let filteredNotes = props.notes.filter(note =>
-      {
+  const renderNotes = () => {
+    let filteredNotes = props.notes.filter(note =>{
     if (note.folderId === props.match.params.folderId) return true;
-      
-  }).map(note => <li key ={note.id}> <Note  note={note}/> </li>)
+    }).map(note => <li key={note.id}><Note note={note}/></li>)
 
-  console.log(filteredNotes)
-  return (
-    <ul className="ListOfNotes">{filteredNotes}</ul>
-  )
-};
+    return (
+        <ul className="ListOfNotes">{filteredNotes}</ul>
+    )
+  };
 
-
+  const renderSingleNote = () => {
+    let filteredNote = props.notes.find(note =>
+    note.id === props.match.params.noteId
+    )
+    
+    return (
+        <ul className="ListOfNote">
+            <li key={filteredNote.id}>
+                <Note note={filteredNote}>
+                    {filteredNote.content}
+                </Note>
+            </li>
+        </ul>
+    )}
+  console.log(props.match)
     // const list = props.notes.map(note =>
     //     <li><Note note={note} /> </li>);
     // const addButtonOrDesc = () => {
@@ -30,10 +40,9 @@ export default function ListOfNotes(props) {
     // };
   return (
     <div className="ListOfNotesWrapper">
-        {notes()}
+        {props.match.params.noteId ? renderSingleNote() : renderNotes()}
       <div className="addButton">
         <button>Add note</button>
-        {/* {addButtonOrDesc()} */}
       </div>
     </div>
   );

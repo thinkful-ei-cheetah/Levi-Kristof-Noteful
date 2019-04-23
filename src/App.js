@@ -3,7 +3,6 @@ import {Route, Switch } from 'react-router-dom';
 import Sidebar from './Sidebar/Sidebar';
 import './App.css'
 import ListOfNotes from './notes/ListOfNotes';
-import SingleNote from './notes/SingleNote';
 
 class App extends Component {
   state = {
@@ -17,11 +16,7 @@ class App extends Component {
       notes: this.props.store.notes
     })
   }
-  
-  note = () => this.state.notes.filter(note =>{
-    const noteId = "cbc787a0-ffaf-11e8-8eb2-f2801f1b9fd1";
-    if (note.id === noteId) return true;
-  })
+
   render() {
     return (
       <div className="App">
@@ -42,23 +37,28 @@ class App extends Component {
 
                 )
               }}/>
-              <Route 
-              
+            <Route
+              exact
+              path='/:folderId/:noteId'
+              render={({match})=>{console.log(match)
+                return (
+                  <React.Fragment>
+                    <Sidebar folders={this.state.folders}/>
+                    <ListOfNotes match={match} notes={this.state.notes}/>
+                  </React.Fragment>
+                )
+              }}
+            />
+            <Route 
               path='/:folderId'
               render={({match})=>{console.log(match)
                 return (
                   <React.Fragment>
                     <Sidebar folders={this.state.folders}/>
-                    <ListOfNotes match ={match} notes={this.state.notes}/>
+                    <ListOfNotes match={match} notes={this.state.notes}/>
                   </React.Fragment>
-
                 )
-              }}/>
-          {/* <Sidebar folders={this.state.folders}/>
-          <ListOfNotes 
-            notes={this.notes()} 
-            singleNoteDisplay={this.state.singleNoteDisplay} />
-          <SingleNote note={this.note()} /> */}
+            }}/>
           </Switch>
         </main>
       </div>
