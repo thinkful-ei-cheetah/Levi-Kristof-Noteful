@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
+import Sidebar from './Sidebar/Sidebar';
+import './App.css'
 import ListOfNotes from './notes/ListOfNotes';
 import SingleNote from './notes/SingleNote';
 
