@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, Switch } from 'react-router-dom';
+import {Route, Switch, NavLink } from 'react-router-dom';
 import Sidebar from './Sidebar/Sidebar';
 import './App.css'
 import ListOfNotes from './notes/ListOfNotes';
@@ -21,7 +21,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Noteful</h1>
+          <NavLink to={'/'}><h1>Noteful</h1></NavLink>
         </header>
         <main>
           <Switch>
@@ -43,7 +43,7 @@ class App extends Component {
               render={({match})=>{console.log(match)
                 return (
                   <React.Fragment>
-                    <Sidebar folders={this.state.folders}/>
+                    <Sidebar folders={this.state.folders} match={match}/>
                     <ListOfNotes match={match} notes={this.state.notes}/>
                   </React.Fragment>
                 )

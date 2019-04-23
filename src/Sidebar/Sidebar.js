@@ -2,8 +2,8 @@ import React from 'react';
 import Folder from './Folder';
 import './Sidebar.css'
 
-const Sidebar = ({folders, singleNote}) => {
-  const btn = singleNote ? 
+const Sidebar = ({folders, match}) => {
+  const btn = match ? 
     <button className="add-folder">Go Back</button> :
     <button className="add-folder">Add Folder</button>
 
