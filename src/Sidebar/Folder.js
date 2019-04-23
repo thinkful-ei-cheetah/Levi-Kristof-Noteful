@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-const Folder = ({name, id}) => (
-  <Link to={`/${id}`}><div className="folder">
+const Folder = ({name, id, apples}) => (
+  <NavLink to={`/${id}`} activeClassName="selected"><div className="folder">
     <h3>{name}</h3>
-  </div></Link>
+  </div></NavLink>
 )
 
 export default Folder;

@@ -9,7 +9,6 @@ class App extends Component {
   state = {
     folders: [],
     notes: [],
-    singleNoteDisplay: null,
   }
 
   componentDidMount() {
@@ -18,10 +17,7 @@ class App extends Component {
       notes: this.props.store.notes
     })
   }
-  notes = () => this.state.notes.filter(note =>{
-    const folder = "b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1";
-    if (note.folderId===folder) return true;
-  });
+  
   note = () => this.state.notes.filter(note =>{
     const noteId = "cbc787a0-ffaf-11e8-8eb2-f2801f1b9fd1";
     if (note.id === noteId) return true;
@@ -42,6 +38,18 @@ class App extends Component {
                   <div>
                     <Sidebar folders={this.state.folders}/>
                     <ListOfNotes notes={[]}/>
+                  </div>
+
+                )
+              }}/>
+              <Route 
+              
+              path='/:folderId'
+              render={({match})=>{console.log(match)
+                return (
+                  <div>
+                    <Sidebar folders={this.state.folders}/>
+                    <ListOfNotes match ={match} notes={this.state.notes}/>
                   </div>
 
                 )

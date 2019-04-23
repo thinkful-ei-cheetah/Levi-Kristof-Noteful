@@ -17,6 +17,11 @@
 .folder > h3{
 margin: 0px;
 padding: 0px;
+text-decoration: none;
+}
+
+NavLink{
+  text-decoration: none;
 }
 
 .folder:hover{
