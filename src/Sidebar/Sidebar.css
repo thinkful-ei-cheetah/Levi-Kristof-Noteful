@@ -1,0 +1,49 @@
+.Sidebar{
+  width: 300px;
+  border: 1px solid black;
+  height: 700px;
+  text-align:center;
+  padding: 0px;
+  margin: 0px;
+}
+
+.folder{
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin: 0px;
+  padding: 20px 0px;
+  box-shadow: 1px 1px grey;
+}
+.folder > h3{
+margin: 0px;
+padding: 0px;
+}
+
+.folder:hover{
+  box-shadow: none;
+  color: blue;
+  cursor: pointer;
+  /* border: 1px solid blue  */
+}
+
+.add-folder{
+  width: 85%;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid black;
+  box-shadow: 1px 1px grey;
+}
+
+.add-folder:active{
+  box-shadow: none
+}
+
+
+.Sidebar > ul{
+  padding: 0px;
+  margin-top: 0px;
+}
+
+.selected{
+  background-color: rgb(136, 217, 253);
+}
