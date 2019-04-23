@@ -4,21 +4,37 @@ import React from 'react';
 import Note from './Note';
 
 export default function ListOfNotes(props) {
-  console.log(props.match.params.folderId);
-  const notes = () => {
+  const renderNotes = () => {
     let filteredNotes = props.notes.filter(note =>
       {
     if (note.folderId === props.match.params.folderId) return true;
       
-  }).map(note => <Note note={note}/>)
+    }).map(note => <li key={note.id}><Note note={note}/></li>)
 
-  console.log(filteredNotes)
-  return (
-    <ul className="ListOfNotes">{filteredNotes}</ul>
-  )
-};
+    console.log(filteredNotes)
+    return (
+        <ul className="ListOfNotes">{filteredNotes}</ul>
+    )
+  };
 
-
+  const renderSingleNote = () => {
+    let filteredNote = props.notes.find(note =>
+    note.id === props.match.params.noteId
+    )
+    console.log(props)
+    console.log(props.notes)
+    console.log(props.match)
+    console.log(filteredNote)
+    return (
+        <ul className="ListOfNote">
+            <li key={filteredNote.id}>
+                <Note note={filteredNote}>
+                    {filteredNote.content}
+                </Note>
+            </li>
+        </ul>
+    )}
+  console.log(props.match)
     // const list = props.notes.map(note =>
     //     <li><Note note={note} /> </li>);
     // const addButtonOrDesc = () => {
@@ -30,10 +46,9 @@ export default function ListOfNotes(props) {
     // };
   return (
     <div className="ListOfNotesWrapper">
-        {notes()}
+        {props.match.params.noteId ? renderSingleNote() : renderNotes()}
       <div className="addButton">
         <button>Add note</button>
-        {/* {addButtonOrDesc()} */}
       </div>
     </div>
   );
