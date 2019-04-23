@@ -10,8 +10,8 @@ const Sidebar = ({folders, singleNote}) => {
     //const selectedFolder = folders.find(item =>item.id ===singleNote.id)
 
 
-   const allFolders = folders.map(folder => <Folder name={folder.name} key= {folder.id}/>)
-console.log(typeof singleNote.id)
+   const allFolders = folders.map(folder => <Folder name={folder.name} id ={folder.id} key= {folder.id}/>)
+
   return(
 
     <div className="Sidebar">

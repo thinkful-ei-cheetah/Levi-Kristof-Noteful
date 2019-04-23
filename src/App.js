@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Switch } from 'react-router-dom';
 import Sidebar from './Sidebar/Sidebar';
 import './App.css'
 import ListOfNotes from './notes/ListOfNotes';
@@ -30,13 +30,28 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-        This is App.js
+          <h1>Noteful</h1>
         </header>
         <main>
+          <Switch>
+            <Route 
+              exact
+              path='/'
+              render={()=>{
+                return (
+                  <div>
+                    <Sidebar folders={this.state.folders}/>
+                    <ListOfNotes notes={[]}/>
+                  </div>
+
+                )
+              }}/>
+          {/* <Sidebar folders={this.state.folders}/>
           <ListOfNotes 
             notes={this.notes()} 
             singleNoteDisplay={this.state.singleNoteDisplay} />
-          <SingleNote note={this.note()} />
+          <SingleNote note={this.note()} /> */}
+          </Switch>
         </main>
       </div>
     )
